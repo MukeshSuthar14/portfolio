@@ -1,0 +1,103 @@
+.contact-section .contact-me {
+    margin: 16px 0;
+    /* padding: 0 40px; */
+    width: 100%;
+}
+
+.contact-section p {
+    display: block;
+    margin: 0 auto;
+}
+
+.contact-section {
+    display: inline-block;
+    padding: 108px 0;
+    width: 100%;
+}
+
+.contact-section > p {
+    margin-top: 25px;
+    text-align: center;
+    color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.contact-section .form-div {
+    /* box-shadow: 0 0 30px var(--background-color); */
+    width: 100%;
+    border-radius: 10px;
+}
+
+.contact-section .form-div .form-container {
+    margin: 0 50px;
+    padding: 80px 40px;
+}
+
+.contact-section .form-div .form-container div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.contact-section .form-div .form-container div > label {
+    width: 30%;
+    font-size: 25px;
+}
+
+.contact-section .form-div .form-container div > input, .contact-section .form-div .form-container div > textarea {
+    width: 50%;
+    background-color: var(--background-theme-color);
+    border: 2px solid var(--background-color);
+    border-radius: 5px;
+    outline: none;
+    color: var(--background-invert-theme-color);
+    padding: 8px;
+}
+
+.contact-section .form-div .form-container div:last-child {
+    display: flex;
+    justify-content: end;
+}
+
+.contact-section .form-div .form-container .submit-btn .btn-submit {
+    display: block;
+    cursor: pointer;
+    font-size: 25px;
+    background-color: var(--background-color);
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--background-theme-color);
+    margin: 0 auto;
+    width: 100%;
+    height: 50px;
+}
+
+.contact-section .form-div .form-container .submit-btn {
+    padding-top: 50px;
+}
+
+@media (max-width:780px) {
+    .contact-section {
+        display: block;
+    }
+    .contact-section p {
+        display: block;
+        margin: 30px 0;
+    }
+    .contact-section .contact-me {
+        display: inline;
+    }
+    .contact-section .contact-me .form-div {
+        display: block;
+        margin: 0 auto;
+        box-shadow: none;
+    }
+    .contact-section .form-div .form-container {
+        padding: 0;
+    }
+}
