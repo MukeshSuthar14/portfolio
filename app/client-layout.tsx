@@ -69,8 +69,9 @@ export default function ClientLayout({
                         </div>
                         <ul className="nav-link">
                             <li><Link href="/">Home</Link></li>
-                            <li><Link href="/about">About Me</Link></li>
-                            <li><Link href="/contact">Contact Me</Link></li>
+                            <li><Link href="/about">About</Link></li>
+                            <li><Link href="/project">Project</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
                             <li><Link href="/cv.pdf" target="__blank">CV</Link></li>
                         </ul>
                         {/* <button className="btn-theme" onClick={(e) => setTheme(theme === "Light" ? "Dark": "Light")} dangerouslySetInnerHTML={{__html: theme === "Light" ? "&#127774;": "&#127770;"}}></button> */}
@@ -88,31 +89,6 @@ export default function ClientLayout({
             </header>
             {children}
             <footer className="footer">
-                <div className="footer-section">
-                    <div>
-                        <div className="portfolio-name">
-                            <b>
-                                <Link style={{ textDecoration: "none", color: "var(--background-color)" }} href="https://www.linkedin.com/in/mukeshsuthar90">Mukesh&apos;s</Link> Portfolio
-                            </b>
-                        </div>
-                        <div className="social-links">
-                            <div><Link href="https://github.com/MukeshSuthar14">GH</Link></div>
-                            <div><Link href="https://www.linkedin.com/in/mukeshsuthar90">LI</Link></div>
-                            <div><Link href="https://www.instagram.com/mukesh_sthr90">IG</Link></div>
-                            <div><Link href="https://www.x.com">X</Link></div>
-                            <div><Link href="https://www.youtube.com/@msdoticon">YT</Link></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="portfolio-name"><b>Contact Me</b></div>
-                        <ul>
-                            <li><Link href="tel:+919016281095">+91 9016281095</Link></li>
-                            <li><Link href="mailto:mukeshsuthar6142@gmail.com">mukeshsuthar6142@gmail.com</Link></li>
-                            <li><Link href="https://www.linkedin.com/in/mukeshsuthar90">mukeshsuthar90</Link></li>
-                            {/* <li>D-cabin, Sabarmati, Ahmedabad - 18, Gujrat</li> */}
-                        </ul>
-                    </div>
-                </div>
                 <div className="copyright-section">
                     <div> &copy; {new Date().getFullYear()} Mukesh Suthar. All Rights Reserved.</div>
                     <div>Developed by <Link style={{ textDecoration: "none", color: "var(--background-color)" }} href="https://www.linkedin.com/in/mukeshsuthar90">Mukesh Suthar</Link></div>

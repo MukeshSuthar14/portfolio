@@ -1,10 +1,10 @@
 export default {
   "Light": {
-    background: '#fae9ff',
+    background: 'white',
     text: 'black'
   },
   "Dark": {
     background: 'black',
-    text: '#fae9ff'
+    text: 'white'
   },
 };

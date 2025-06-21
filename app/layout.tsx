@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Mukesh Suthar | Portfolio",
   description: "Mukesh Suthar's portfolio",
-  icons: "http://localhost:3000/mukesh-image.jpg"
+  icons: "https://mukesh-suthar.vercel.app/mukesh-image.jpg"
 };
 
 export default function RootLayout({

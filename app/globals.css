@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
+  /* --background-color: #75E6DA; */
   --background-color: #b968c7;
-  --background-theme-color: #fae9ff;
+  --background-theme-color: white;
   --background-invert-theme-color: black;
 }
 
@@ -21,9 +22,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(rgb(var(--background-color)), .959);
+  background: var(--background-color);
+  /* background: rgba(rgb(var(--background-invert-theme-color)), .959); */
   border-radius: 3px;
-  color: var(--background-color);
+  color: var(--background-invert-theme-color);
 }
 
 ::-webkit-scrollbar-track {
@@ -209,7 +211,8 @@ body {
   /* border-bottom: 1px solid var(--background-color); */
   backdrop-filter: blur(10px);
   background-color: rgba(rgb(var(--background-color)), 0.3);
-  box-shadow: 0px 6px 18px -5px var(--background-color)
+  box-shadow: 0px 6px 18px -5px var(--background-color);
+  z-index: 9999;
 }
 
 .header-section {
@@ -250,6 +253,7 @@ body {
 
 .header-right .nav-link>li {
   text-align: center;
+  font-weight: 500;
 }
 
 .nav-link a {
@@ -346,7 +350,7 @@ body {
 .footer {
   display: block;
   /* border-top: 2px solid var(--background-color); */
-  box-shadow: 0px -6px 19px -6px var(--background-color);
+  /* box-shadow: 0px -6px 19px -6px var(--background-color); */
 }
 
 .footer-section,
@@ -354,6 +358,11 @@ body {
   padding: 15px 100px;
   display: flex;
   justify-content: space-between;
+}
+
+.footer-section {
+  justify-content: center;
+  padding: 15px 100px 100px 100px;
 }
 
 .footer-section .portfolio-name {
@@ -365,7 +374,7 @@ body {
 }
 
 .footer-section b {
-  font-size: 30px;
+  font-size: 40px;
   color: var(--background-color);
 }
 
@@ -392,7 +401,7 @@ body {
 }
 
 .social-links {
-  margin-top: 10px;
+  margin-top: 30px;
   display: flex;
 }
 
@@ -408,11 +417,40 @@ body {
   justify-content: center;
   align-items: center;
   margin: 5px;
-  border: 1px solid var(--background-color);
-  /* border-radius: 50%; */
+  /* border: 1px solid var(--background-color); */
+  border-radius: 50%;
   padding: 5px;
   height: 30px;
   width: 30px;
+}
+
+
+.contact-section .form-div .form-container .submit-btn {
+  padding-top: 0;
+}
+
+.contact-section .contact-info a {
+  text-decoration: none;
+  color: var(--background-invert-theme-color);
+}
+
+.contact-section .contact-info .social-links {
+  display: block;
+}
+
+.contact-section .contact-info .social-links .single-link {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+}
+
+.contact-section .contact-info .social-links .single-link>div {
+  display: flex;
+}
+
+.contact-section .contact-info .social-links a {
+  font-weight: 400;
+  font-size: 16px;
 }
 
 @media (max-width:768px) {
@@ -445,14 +483,17 @@ body {
   display: none;
 }
 
-@media (max-width:780px) {
+@media (max-width:830px) {
   .dropdown {
     display: block;
-    font-size: 50px;
+    font-size: 40px;
     cursor: pointer;
   }
 
-  .header-section,
+  .header-section {
+    padding: 0 40px;
+  }
+
   .copyright-section {
     padding: 10px 40px;
     z-index: -1;
@@ -467,21 +508,30 @@ body {
   }
 
   .header-right .nav-link {
-    display: none;
-  }
 
-  .header-right .nav-link-open {
+    /* display: none; */
+    display: block;
     position: fixed;
-    top: 74px;
+    top: 60px;
     left: 0;
     width: 100%;
-    height: 170px;
-    display: inline;
-    border-bottom: 1px solid var(--background-color);
     background-color: var(--background-theme-color);
-    /* padding: 10px; */
+    border-bottom: 1px solid var(--background-color);
     z-index: 1;
-    padding-top: 20px;
+
+
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+  }
+
+  .header-right .nav-link.nav-link-open {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .header {
@@ -502,7 +552,7 @@ body {
   .theme-toggle-switch {
     position: fixed;
     right: 20px;
-    top: 720px;
+    bottom: 3vh;
   }
 }
 
@@ -558,7 +608,7 @@ body {
     padding: 16px 0;
   }
 
-  .footer-section > div {
+  .footer-section>div {
     text-align: center;
     margin-bottom: 30px;
   }
@@ -569,7 +619,6 @@ body {
 
   .footer-section .social-links {
     justify-content: center;
-    gap: 10px;
   }
 
 }
