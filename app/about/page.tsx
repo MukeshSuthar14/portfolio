@@ -1,17 +1,15 @@
-import { cookies } from "next/headers";
 import Layout from "../server-layout";
 import './page.css';
-import { Theme } from "@/utils/types";
+import { FcAbout } from "react-icons/fc";
+import { GiSoapExperiment } from "react-icons/gi";
+import { SiXdadevelopers } from "react-icons/si";
 
 export default async function Home() {
-  const cookieStore = await cookies();
-  const theme: Theme = cookieStore.get('theme')?.value as Theme;
-
   return (
-    <Layout theme={theme}>
+    <Layout>
       <section className="about-section">
         <div className="about-info">
-          <div className="heading">About Me</div>
+          <div className="heading">About Me <FcAbout /></div>
           <div className="about">
             <ul>
               <li>Hi there, I am <span className="theme-color">Mukesh Suthar</span> from <span className="theme-color">Ahmedabad, Gujarat</span>.</li>
@@ -24,12 +22,12 @@ export default async function Home() {
         </div>
         {/* <hr /> */}
         <div className="about-info">
-          <div className="heading">Work Experience</div>
+          <div className="heading"><GiSoapExperiment /> Work Experience <GiSoapExperiment /></div>
           <div className="row-list">
             <div className="experience-info">
               <div className="experience-role">
-                <p>Jr. Web Developer</p>
-                <p>(April 2023 - April 2025)</p>
+                <p><span className="theme-color"><SiXdadevelopers /> Jr. Web Developer</span></p>
+                <p><span className="theme-color">(April 2023 - April 2025)</span></p>
               </div>
               <div className="company-name">
                 The WildTigers Technologies

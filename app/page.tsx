@@ -1,17 +1,12 @@
 import Typewriter from "@/components/Typewriter";
 import Layout from "./server-layout";
 import Image from "next/image";
-import { cookies } from "next/headers";
-import { Theme } from "@/utils/types";
 import Link from "next/link";
 import { FaLinkedin, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
 
 export default async function Home() {
-  const cookieStore = await cookies();
-  const theme: Theme = cookieStore.get('theme')?.value as Theme;
-
   return (
-    <Layout theme={theme}>
+    <Layout>
       <section className="section">
         <div className="container">
           <div className="section-info">
@@ -36,10 +31,10 @@ export default async function Home() {
               <b>FIND ME ON</b>
             </div>
             <div className="social-links">
-              <div><Link href="https://github.com/MukeshSuthar14"><FaGithub size={25}/></Link></div>
-              <div><Link href="https://www.x.com/mukeshsuthar90"><FaTwitter size={25}/></Link></div>
-              <div><Link href="https://www.linkedin.com/in/mukeshsuthar90"><FaLinkedin size={25}/></Link></div>
-              <div><Link href="https://www.instagram.com/mukesh_sthr90"><FaInstagram size={25}/></Link></div>
+              <div><Link href="https://github.com/MukeshSuthar14"><FaGithub size={25} /></Link></div>
+              <div><Link href="https://www.x.com/mukeshsuthar90"><FaTwitter size={25} /></Link></div>
+              <div><Link href="https://www.linkedin.com/in/mukeshsuthar90"><FaLinkedin size={25} /></Link></div>
+              <div><Link href="https://www.instagram.com/mukesh_sthr90"><FaInstagram size={25} /></Link></div>
             </div>
           </div>
         </div>

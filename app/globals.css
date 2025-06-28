@@ -211,7 +211,8 @@ body {
   /* border-bottom: 1px solid var(--background-color); */
   backdrop-filter: blur(10px);
   background-color: rgba(rgb(var(--background-color)), 0.3);
-  box-shadow: 0px 6px 18px -5px var(--background-color);
+  /* box-shadow: 0px 6px 18px -5px var(--background-color); */
+  box-shadow: 0px 0px 0px 1px var(--background-color);
   z-index: 9999;
 }
 
@@ -397,7 +398,8 @@ body {
 
 .copyright-section {
   /* border-top: 1px solid var(--background-color); */
-  box-shadow: 0px -6px 19px -6px var(--background-color);
+  /* box-shadow: 0px -6px 19px -6px var(--background-color); */
+  box-shadow: 0px 0px 0px 1px var(--background-color);
 }
 
 .social-links {

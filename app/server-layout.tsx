@@ -1,14 +1,16 @@
-import { Theme } from "@/utils/types";
 import ClientLayout from "./client-layout";
 import themeColors from '../theme-config';
+import { cookies } from "next/headers";
+import { Theme } from "@/utils/types";
 
 export default async function Layout({
-    children,
-    theme
+    children
 }: {
-    children: React.ReactNode,
-    theme: Theme
+    children: React.ReactNode
 }) {
+    const cookieStore = await cookies();
+    const theme: Theme = cookieStore.get('theme')?.value as Theme;
+
     let style = {};
     if (theme) {
         style = {
@@ -16,6 +18,7 @@ export default async function Layout({
             "--background-invert-theme-color": themeColors[theme].text
         };
     }
+    
     return (
         <body className="body-start" style={style}>
             <ClientLayout theme={theme}>
