@@ -1,4 +1,4 @@
-import { Project, Theme } from "@/utils/types";
+import { Project } from "@/utils/types";
 import Layout from "../server-layout";
 import './page.css';
 import Image from "next/image";
