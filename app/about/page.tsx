@@ -1,10 +1,35 @@
+import { FaJs, FaNode, FaLaravel, FaReact, FaTools } from "react-icons/fa";
 import Layout from "../server-layout";
 import './page.css';
 import { FcAbout } from "react-icons/fc";
-import { GiSoapExperiment } from "react-icons/gi";
-import { SiXdadevelopers } from "react-icons/si";
+import { GiSoapExperiment, GiSkills } from "react-icons/gi";
+import { SiXdadevelopers, SiPhp, SiMysql, SiSocketdotio, SiMongodb, SiPostman } from "react-icons/si";
+import { DiCodeigniter, DiJqueryLogo } from "react-icons/di";
+import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
+import { RiNextjsFill } from "react-icons/ri";
+import { IoLogoVercel } from "react-icons/io5";
 
 export default async function Home() {
+  const Skills: React.ReactNode[] = [
+    <FaJs title="JavaScript" key={1} />,
+    <SiPhp title="PHP" key={2} />,
+    <SiMysql title="MySql" key={3} />,
+    <FaNode title="Node.JS" key={4} />,
+    <FaLaravel title="Laravel" key={5} />,
+    <DiCodeigniter title="Codeigniter" key={6} />,
+    <DiJqueryLogo title="Jquery" key={7} />,
+    <FaReact title="React.JS" key={8} />,
+    <BiLogoTypescript title="TypeScript" key={9} />,
+    <RiNextjsFill title="Next.JS" key={10} />,
+    <SiSocketdotio title="Socket.IO" key={11} />,
+    <SiMongodb title="MongoDB" key={12} />
+  ];
+  const Tools: React.ReactNode[] = [
+    <BiLogoVisualStudio title="Visual Studio Code" key={1} />,
+    <SiPostman title="Postman" key={2} />,
+    <IoLogoVercel title="Vercel" key={3} />
+  ];
+
   return (
     <Layout>
       <section className="about-section">
@@ -20,9 +45,8 @@ export default async function Home() {
             </ul>
           </div>
         </div>
-        {/* <hr /> */}
         <div className="about-info">
-          <div className="heading"><GiSoapExperiment /> Work Experience <GiSoapExperiment /></div>
+          <div className="heading">Work Experience <GiSoapExperiment /></div>
           <div className="row-list">
             <div className="experience-info">
               <div className="experience-role">
@@ -40,6 +64,30 @@ export default async function Home() {
                 <li>Implemented RESTful APIs to facilitate smooth data exchange between the backend and frontend, ensuring a well-structured
                   and responsive application.</li>
               </ul>
+            </div>
+          </div>
+        </div>
+        <div className="about-info">
+          <div className="heading">Skills <GiSkills /></div>
+          <div className="skill-container">
+            <div className="skill-list">
+              {Skills && Skills?.length > 0 && Skills?.map((skill: React.ReactNode, key: number) => (
+                <div key={key} className="skill">
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="about-info">
+          <div className="heading">Tools <FaTools /></div>
+          <div className="skill-container">
+            <div className="skill-list">
+              {Tools && Tools?.length > 0 && Tools?.map((tool: React.ReactNode, key: number) => (
+                <div key={key} className="skill">
+                  {tool}
+                </div>
+              ))}
             </div>
           </div>
         </div>

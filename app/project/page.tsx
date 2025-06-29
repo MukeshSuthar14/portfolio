@@ -3,16 +3,20 @@ import Layout from "../server-layout";
 import './page.css';
 import Image from "next/image";
 import Link from "next/link";
-import { FaCss3, FaHtml5, FaJs, FaLaravel } from "react-icons/fa";
+import { FaCss3, FaHtml5, FaJs, FaLaravel, FaBootstrap, FaAws } from "react-icons/fa";
 import { RiReactjsFill } from "react-icons/ri";
+import { BiLogoJquery } from "react-icons/bi";
 import React from "react";
 
 export default async function page() {
-    const HTML: React.ReactNode = <FaHtml5 title="HTML"/>;
-    const CSS: React.ReactNode = <FaCss3 title="CSS"/>;
-    const JS: React.ReactNode = <FaJs title="JavaScript"/>;
-    const Laravel: React.ReactNode = <FaLaravel title="Laravel"/>;
-    const ReactJS: React.ReactNode = <RiReactjsFill title="React.Js"/>;
+    const HTML: React.ReactNode = <FaHtml5 title="HTML" />;
+    const CSS: React.ReactNode = <FaCss3 title="CSS" />;
+    const BootStrap: React.ReactNode = <FaBootstrap title="bootstrap"/>;
+    const JS: React.ReactNode = <FaJs title="JavaScript" />;
+    const Jquery: React.ReactNode = <BiLogoJquery title="Jquery"/>;
+    const Laravel: React.ReactNode = <FaLaravel title="Laravel" />;
+    const ReactJS: React.ReactNode = <RiReactjsFill title="React.Js" />;
+    const AWS: React.ReactNode = <FaAws title="AWS S3"/>
 
     const projects: Project[] = [
         {
@@ -21,7 +25,7 @@ export default async function page() {
             link: "https://imtech.res.in",
             details: "Developed and maintained web applications using PHP, Laravel, CodeIgniter, MySQL, and JavaScript. Focused on backend development, managing and organizing data efficiently for seamless integration with the frontend. Optimized database queries to enhance application performance and scalability. Implemented RESTful APIs to facilitate smooth data exchange between the backend and frontend, ensuring a well- structured and responsive application. ",
             technology: [
-                HTML, CSS, JS, Laravel
+                HTML, CSS, BootStrap, JS, Jquery, Laravel
             ]
         },
         {
@@ -30,7 +34,7 @@ export default async function page() {
             link: "https://praheal.com",
             details: "Developed a SaaS-based web application for clinics to streamline patient appointment scheduling and management. The platform features an intuitive Appointment Calendar, Patient Medical Records management, Treatment Scheduler, EPrescription generation, and Accounts & Billing. It also includes Finance Reports, Post-Procedure Follow-ups, Home Treatment management, and a comprehensive Plan Treatment Schedule, enhancing operational efficiency and patient care. ",
             technology: [
-                ReactJS, Laravel
+                ReactJS, Laravel, AWS
             ]
         },
         {
@@ -39,7 +43,7 @@ export default async function page() {
             link: "https://www.pentaqube.com",
             details: "Implemented efficient data fetching techniques, managed state using React hooks, and optimized rendering for a seamless user experience. Ensured dynamic content updates and interactive UI components for improved user engagement. ",
             technology: [
-                ReactJS, Laravel
+                ReactJS, BootStrap, Laravel
             ]
         },
         {
@@ -48,7 +52,7 @@ export default async function page() {
             link: "https://www.nritaxservices.com",
             details: "Implemented dynamic menus and show in frontend. Ensured dynamic content updates and interactive UI components for improved user engagement",
             technology: [
-                ReactJS, Laravel
+                ReactJS, BootStrap, Laravel
             ]
         },
         {
@@ -57,7 +61,7 @@ export default async function page() {
             link: "https://www.consult-ibc.com",
             details: "Implemented dynamic menus and show in frontend. Ensured dynamic content updates and interactive UI components for improved user engagement",
             technology: [
-                ReactJS, Laravel
+                ReactJS, BootStrap, Laravel
             ]
         }
     ];
@@ -80,11 +84,13 @@ export default async function page() {
                                     {project?.details}
                                 </div>
                                 <div className="project-tech">
-                                    <Link href={project.link} target="_blank" className="visit-site">Click to visit</Link>
                                     <div className="website-tech">
                                         {project?.technology?.map((tech: React.ReactNode, techKey: number) => (
                                             <div key={techKey} className="tech">{tech}</div>
                                         ))}
+                                    </div>
+                                    <div className="visit-link">
+                                        <Link href={project.link} target="_blank" className="visit-site">Click to visit</Link>
                                     </div>
                                 </div>
                             </div>

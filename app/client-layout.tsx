@@ -4,6 +4,11 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Cookies from 'js-cookie';
 import { Theme } from "@/utils/types";
+import { FaHome } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
+import { VscProject } from "react-icons/vsc";
+import { RiContactsFill } from "react-icons/ri";
+import { SiReaddotcv } from "react-icons/si";
 
 export default function ClientLayout({
     children,
@@ -68,11 +73,11 @@ export default function ClientLayout({
                             &#9776;
                         </div>
                         <ul className="nav-link">
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/about">About</Link></li>
-                            <li><Link href="/project">Project</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
-                            <li><Link href="/cv.pdf" target="__blank">CV</Link></li>
+                            <li><Link href="/"><FaHome /> Home</Link></li>
+                            <li><Link href="/about"><CgProfile /> About</Link></li>
+                            <li><Link href="/project"><VscProject /> Project</Link></li>
+                            <li><Link href="/contact"><RiContactsFill /> Contact</Link></li>
+                            <li><Link href="/cv.pdf" target="__blank"><SiReaddotcv /> CV</Link></li>
                         </ul>
                         {/* <button className="btn-theme" onClick={(e) => setTheme(theme === "Light" ? "Dark": "Light")} dangerouslySetInnerHTML={{__html: theme === "Light" ? "&#127774;": "&#127770;"}}></button> */}
                         <label className="theme-toggle-switch">

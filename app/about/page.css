@@ -3,7 +3,7 @@
     padding: 0px 100px;
 }
 
-.about-section > div {
+.about-section>div {
     margin: 20px 0;
 }
 
@@ -11,7 +11,8 @@
     padding: 108px 0;
 }
 
-.about-info .row-list, .about-info .about {
+.about-info .row-list,
+.about-info .about {
     margin-top: 50px;
 }
 
@@ -50,7 +51,7 @@
     justify-content: space-between;
 }
 
-.experience-info .experience-role > p {
+.experience-info .experience-role>p {
     color: var(--background-invert-theme-color);
 }
 
@@ -60,6 +61,34 @@
 
 .about-section .about-info .heading {
     color: var(--background-invert-theme-color);
+}
+
+.about-info .skill-container {
+    margin: 0 auto;
+}
+
+.about-info .skill-container .skill-list {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.about-info .skill-list .skill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--background-color);
+    border-radius: 10px;
+    font-size: 70px;
+    width: 15%;
+    height: 100px;
+}
+
+.about-info .skill-list .skill:hover {
+    transform: scale(1.1);
+    overflow: hidden;
 }
 
 @media (max-width:780px) {
@@ -74,5 +103,10 @@
     .experience-info .experience-role {
         display: inline;
         text-align: center;
+    }
+
+    .about-info .skill-list .skill {
+        width: 25%;
+        font-size: 40px;
     }
 }

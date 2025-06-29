@@ -14,6 +14,9 @@ body {
   font-size: 20px;
   background-color: var(--background-theme-color);
   font-family: 'poppins', 'sans-serif';
+  /* background-image: url(/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 /* Scrollbar track (background) */
@@ -245,7 +248,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 20px;
+  gap: 35px;
 }
 
 .header-right .nav-link>ul {
@@ -258,6 +261,10 @@ body {
 }
 
 .nav-link a {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  align-items: center;
   text-decoration: none;
   color: var(--background-invert-theme-color);
 }
@@ -267,7 +274,6 @@ body {
 .nav-link>li a:focus {
   /* border-bottom: 3px solid var(--background-color); */
   color: var(--background-color);
-  text-shadow: 0 0 10px 10px var(--background-color);
   outline: none;
 }
 
@@ -541,8 +547,8 @@ body {
     background-color: var(--background-theme-color);
   }
 
-  .header-right .nav-link-open>li {
-    margin-bottom: 10px;
+  .header-right .nav-link > li {
+    margin-bottom: 20px;
   }
 
   .btn-theme {
