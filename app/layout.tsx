@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { LoaderProvider } from '../context/LoaderContext';
 
 export const metadata: Metadata = {
   title: "Mukesh Suthar | Portfolio",
@@ -32,7 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {children}
+      <LoaderProvider>
+        {children}
+      </LoaderProvider>
     </html>
   );
 }

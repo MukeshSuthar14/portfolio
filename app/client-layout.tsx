@@ -18,7 +18,6 @@ export default function ClientLayout({
     theme: Theme
 }) {
     const [currentTheme, setCurrentThemeTheme] = useState<string | undefined>(theme);
-    const [loading, setLoading] = useState<boolean | null>(true);
     const openDropDown = (thisitem: Element) => {
         const parent: Element | null = thisitem.parentElement;
         const navLink = parent?.querySelector('.nav-link');
@@ -34,7 +33,7 @@ export default function ClientLayout({
 
     const changeTheme = (theme: Theme) => {
         const htmlStyle = getComputedStyle(document.documentElement);
-        Cookies.set('theme', theme);
+        Cookies.set('theme', theme, { expires: 365 });
         setCurrentThemeTheme(theme)
         if (theme === "Light") {
             document.body.style.setProperty("--background-theme-color", htmlStyle.getPropertyValue("--background-theme-color"))
@@ -51,18 +50,12 @@ export default function ClientLayout({
             const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             newTheme = isDark ? "Dark" : "Light";
         }
-        Cookies.set('theme', newTheme);
+        Cookies.set('theme', newTheme, { expires: 365 });
         setCurrentThemeTheme(newTheme);
-        const timer = setTimeout(() => setLoading(false), 1000);
-        return () => clearTimeout(timer);
     }, [theme]);
 
-    if (loading) {
-        return <Loader />
-    }
-
     return (
-        <>
+        <Loader>
             <header className="header">
                 <div className="header-section">
                     <div className="header-left">
@@ -79,7 +72,6 @@ export default function ClientLayout({
                             <li><Link href="/contact"><RiContactsFill /> Contact</Link></li>
                             <li><Link href="/cv.pdf" target="__blank"><SiReaddotcv /> CV</Link></li>
                         </ul>
-                        {/* <button className="btn-theme" onClick={(e) => setTheme(theme === "Light" ? "Dark": "Light")} dangerouslySetInnerHTML={{__html: theme === "Light" ? "&#127774;": "&#127770;"}}></button> */}
                         <label className="theme-toggle-switch">
                             <input
                                 type="checkbox"
@@ -99,6 +91,6 @@ export default function ClientLayout({
                     <div>Developed by <Link style={{ textDecoration: "none", color: "var(--background-color)" }} href="https://www.linkedin.com/in/mukeshsuthar90">Mukesh Suthar</Link></div>
                 </div>
             </footer>
-        </>
+        </Loader>
     )
 }

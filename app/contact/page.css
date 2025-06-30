@@ -94,7 +94,7 @@
 
 .contact-section .form-div .form-container div:last-child {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .contact-section .form-div .form-container .submit-btn .btn-submit {
