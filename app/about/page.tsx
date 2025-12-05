@@ -51,7 +51,7 @@ export default async function Home() {
             <div className="experience-info">
               <div className="experience-role">
                 <p><span className="theme-color"><SiXdadevelopers /> Full Stack Developer</span></p>
-                <p><span className="theme-color">(Aug 2023 - Present)</span></p>
+                <p><span className="theme-color">(Aug 2025 - Present)</span></p>
               </div>
               <div className="company-name">
                 DevsTree IT Services Private Limited
