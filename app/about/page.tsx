@@ -50,6 +50,21 @@ export default async function Home() {
           <div className="row-list">
             <div className="experience-info">
               <div className="experience-role">
+                <p><span className="theme-color"><SiXdadevelopers /> Full Stack Developer</span></p>
+                <p><span className="theme-color">(Aug 2023 - Present)</span></p>
+              </div>
+              <div className="company-name">
+                DevsTree IT Services Private Limited
+              </div>
+              <ul className="experience-summary-list">
+                <li>Developed and maintained web applications using Node Js, Nest Js, PostgreSQL and Redis. Focused on both backend
+                  and frontend development, managing and organizing data efficiently for seamless integration with the frontend.</li>
+                <li>Implemented RESTful APIs to facilitate smooth data exchange between the backend and frontend, ensuring a well-structured
+                  and responsive application.</li>
+              </ul>
+            </div>
+            <div className="experience-info">
+              <div className="experience-role">
                 <p><span className="theme-color"><SiXdadevelopers /> Jr. Web Developer</span></p>
                 <p><span className="theme-color">(April 2023 - April 2025)</span></p>
               </div>

@@ -20,30 +20,12 @@ export default async function page() {
 
     const projects: Project[] = [
         {
-            name: "CSIR-IMTECH | DYNAMIC WEBSITE",
-            image: "https://www.imtech.res.in/images/android-chrome-512x512.png",
-            link: "https://imtech.res.in",
-            details: "Developed and maintained web applications using PHP, Laravel, CodeIgniter, MySQL, and JavaScript. Focused on backend development, managing and organizing data efficiently for seamless integration with the frontend. Optimized database queries to enhance application performance and scalability. Implemented RESTful APIs to facilitate smooth data exchange between the backend and frontend, ensuring a well- structured and responsive application. ",
-            technology: [
-                HTML, CSS, BootStrap, JS, Jquery, Laravel
-            ]
-        },
-        {
             name: "PRAHEAL | SAAS WEB APPLICATION",
             image: "https://www.praheal.com/assets/images/pra-logo11.png",
             link: "https://praheal.com",
             details: "Developed a SaaS-based web application for clinics to streamline patient appointment scheduling and management. The platform features an intuitive Appointment Calendar, Patient Medical Records management, Treatment Scheduler, EPrescription generation, and Accounts & Billing. It also includes Finance Reports, Post-Procedure Follow-ups, Home Treatment management, and a comprehensive Plan Treatment Schedule, enhancing operational efficiency and patient care. ",
             technology: [
                 ReactJS, Laravel, AWS
-            ]
-        },
-        {
-            name: "PENTAQUBE | DYNAMIC WEBSITE",
-            image: "https://www.pentaqube.com/favicon.png",
-            link: "https://www.pentaqube.com",
-            details: "Implemented efficient data fetching techniques, managed state using React hooks, and optimized rendering for a seamless user experience. Ensured dynamic content updates and interactive UI components for improved user engagement. ",
-            technology: [
-                ReactJS, BootStrap, Laravel
             ]
         },
         {
@@ -56,12 +38,30 @@ export default async function page() {
             ]
         },
         {
+            name: "PENTAQUBE | DYNAMIC WEBSITE",
+            image: "https://www.pentaqube.com/favicon.png",
+            link: "https://www.pentaqube.com",
+            details: "Implemented efficient data fetching techniques, managed state using React hooks, and optimized rendering for a seamless user experience. Ensured dynamic content updates and interactive UI components for improved user engagement. ",
+            technology: [
+                ReactJS, BootStrap, Laravel
+            ]
+        },
+        {
             name: "IBC CONSULT | DYNAMIC WEBSITE",
             image: "https://www.consult-ibc.com/backend/storage/app/uploads/admin/settings/favicon_1726814795.png",
             link: "https://www.consult-ibc.com",
             details: "Implemented dynamic menus and show in frontend. Ensured dynamic content updates and interactive UI components for improved user engagement",
             technology: [
                 ReactJS, BootStrap, Laravel
+            ]
+        },
+        {
+            name: "CSIR-IMTECH | DYNAMIC WEBSITE",
+            image: "https://www.imtech.res.in/images/android-chrome-512x512.png",
+            link: "https://imtech.res.in",
+            details: "Developed and maintained web applications using PHP, Laravel, CodeIgniter, MySQL, and JavaScript. Focused on backend development, managing and organizing data efficiently for seamless integration with the frontend. Optimized database queries to enhance application performance and scalability. Implemented RESTful APIs to facilitate smooth data exchange between the backend and frontend, ensuring a well- structured and responsive application. ",
+            technology: [
+                HTML, CSS, BootStrap, JS, Jquery, Laravel
             ]
         }
     ];
