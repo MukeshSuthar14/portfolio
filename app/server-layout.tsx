@@ -9,18 +9,23 @@ export default async function Layout({
     children: React.ReactNode
 }) {
     const cookieStore = await cookies();
-    const theme: Theme = cookieStore.get('theme')?.value as Theme;
+    const cookieTheme = cookieStore.get('theme')?.value as Theme;
+    const theme: Theme = (cookieTheme === "Light" || cookieTheme === "Dark") ? cookieTheme : "Dark";
 
-    let style = {};
-    if (theme) {
-        style = {
-            "--background-theme-color": themeColors[theme].background,
-            "--background-invert-theme-color": themeColors[theme].text
-        };
-    }
+    const style = {
+        "--background-theme-color": themeColors[theme].background,
+        "--background-invert-theme-color": themeColors[theme].text,
+        "--grid-dot-color": themeColors[theme].gridDot,
+        "--card-bg": themeColors[theme].cardBg,
+        "--card-border": themeColors[theme].cardBorder,
+        "--card-shadow": themeColors[theme].cardShadow,
+        "--input-bg": themeColors[theme].inputBg,
+        "--input-border": themeColors[theme].inputBorder,
+        "--input-placeholder": themeColors[theme].inputPlaceholder,
+    };
     
     return (
-        <body className="body-start" style={style}>
+        <body className="body-start" data-theme={theme} style={style as React.CSSProperties}>
             <ClientLayout theme={theme}>
                 {children}
             </ClientLayout>
