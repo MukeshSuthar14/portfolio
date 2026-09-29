@@ -19,7 +19,7 @@ export default async function AboutPage() {
         { name: "Node.js", icon: <RiNodejsFill style={{ color: "#339933" }} /> },
         { name: "Laravel", icon: <FaLaravel style={{ color: "#FF2D20" }} /> },
         { name: "PHP", icon: <SiPhp style={{ color: "#777BB4" }} /> },
-        { name: "Socket.io", icon: <SiSocketdotio style={{ color: "#010101" }} /> },
+        { name: "Socket.io", icon: <SiSocketdotio style={{ color: "var(--background-invert-theme-color)" }} /> },
         { name: "WebSockets", icon: <FaServer style={{ color: "#4ECDC4" }} /> },
         { name: "REST APIs", icon: <FaCogs style={{ color: "#FFE66D" }} /> },
       ]
@@ -29,7 +29,7 @@ export default async function AboutPage() {
       icon: <FaLaptopCode style={{ color: "#4ECDC4" }} />,
       skills: [
         { name: "React.js", icon: <RiReactjsFill style={{ color: "#61DAFB" }} /> },
-        { name: "Next.js", icon: <RiNextjsFill style={{ color: "#ffffff" }} /> },
+        { name: "Next.js", icon: <RiNextjsFill style={{ color: "var(--background-invert-theme-color)" }} /> },
         { name: "TypeScript", icon: <BiLogoTypescript style={{ color: "#3178C6" }} /> },
         { name: "JavaScript", icon: <FaJs style={{ color: "#F7DF1E" }} /> },
       ]
@@ -52,7 +52,7 @@ export default async function AboutPage() {
         { name: "Docker", icon: <SiDocker style={{ color: "#2496ED" }} /> },
         { name: "Postman", icon: <SiPostman style={{ color: "#FF6C37" }} /> },
         { name: "VS Code", icon: <BiLogoVisualStudio style={{ color: "#007ACC" }} /> },
-        { name: "Vercel", icon: <IoLogoVercel style={{ color: "#ffffff" }} /> },
+        { name: "Vercel", icon: <IoLogoVercel style={{ color: "var(--background-invert-theme-color)" }} /> },
       ]
     }
   ];
