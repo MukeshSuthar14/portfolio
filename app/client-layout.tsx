@@ -164,6 +164,13 @@ export default function ClientLayout({
                     </div>
                 </div>
             </header>
+            {isMobileMenuOpen && (
+                <div 
+                    className="mobile-nav-backdrop" 
+                    onClick={() => setIsMobileMenuOpen(false)} 
+                    aria-hidden="true" 
+                />
+            )}
             {children}
             <footer className="site-footer">
                 <div className="footer-container">

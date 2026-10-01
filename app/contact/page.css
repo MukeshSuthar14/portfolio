@@ -5,8 +5,10 @@
 }
 
 .contact-section {
-    display: inline-block;
-    padding: 120px 0 100px 0;
+    display: block;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 120px 40px 100px 40px;
     width: 100%;
 }
 
@@ -14,7 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: stretch;
-    margin: 40px 100px;
+    margin: 40px 0;
     gap: 40px;
 }
 
@@ -36,7 +38,7 @@
 
 /* Left side: Contact Info Card */
 .contact-section .contact-info {
-    width: 45%;
+    flex: 1;
     padding: 40px;
     background: var(--card-bg, rgba(255, 255, 255, 0.03));
     border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
@@ -131,7 +133,7 @@
     color: var(--background-invert-theme-color);
     font-size: 15px;
     font-weight: 600;
-    word-break: break-all;
+    overflow-wrap: anywhere;
     transition: color 0.25s ease;
 }
 
@@ -221,7 +223,7 @@
 
 /* Right side: Form container */
 .contact-section .form-div {
-    width: 55%;
+    flex: 1.2;
     background: var(--card-bg, rgba(255, 255, 255, 0.03));
     border: 1px solid var(--card-border, rgba(255, 255, 255, 0.08));
     border-radius: 20px;
@@ -329,9 +331,13 @@
 }
 
 @media (max-width:960px) {
+    .contact-section {
+        padding: 100px 24px 80px 24px;
+    }
+
     .contact-section .contact-me {
         flex-direction: column;
-        margin: 40px 30px;
+        margin: 30px 0;
         gap: 30px;
     }
 
@@ -345,13 +351,16 @@
 
 @media (max-width:600px) {
     .contact-section {
-        padding: 80px 0;
+        padding: 80px 16px 60px 16px;
     }
     .contact-section .contact-me {
-        margin: 20px 16px;
+        margin: 20px 0;
     }
     .contact-section > p {
         font-size: 32px;
+    }
+    .contact-section .contact-info b {
+        font-size: 26px;
     }
     .contact-section .form-div .form-container b {
         font-size: 24px;

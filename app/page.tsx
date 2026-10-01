@@ -70,19 +70,19 @@ export default async function Home() {
                 <span className="pulse-dot"></span>
                 <span>Available for Full Stack & SaaS Roles</span>
               </div>
-              <h6 className="sub-text" style={{ fontSize: "48px", fontWeight: 700, margin: "0 0 8px 0" }}>
+              <h2 className="sub-text">
                 Hi, There! <span className="wave">👋🏻</span>
-              </h6>
-              <h5 className="heading">
+              </h2>
+              <h1 className="heading">
                 <span style={{ color: "var(--background-invert-theme-color)" }}>I&apos;M</span> Mukesh Suthar
-              </h5>
-              <div style={{ marginTop: "14px", marginBottom: "20px" }}>
+              </h1>
+              <div className="hero-typewriter-wrapper">
                 <Typewriter />
               </div>
-              <p style={{ fontSize: "16px", lineHeight: "1.7", opacity: 0.8, maxWidth: "520px", margin: "0 0 28px 0" }}>
+              <p className="hero-desc">
                 Full Stack Developer with 2+ years of experience building scalable SaaS applications, real-time WebSocket systems, and high-performance backends with NestJS, Next.js, and Laravel.
               </p>
-              <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
+              <div className="hero-action-buttons">
                 <Link href="/project" className="hero-btn-primary">
                   View My Work <HiArrowRight />
                 </Link>
