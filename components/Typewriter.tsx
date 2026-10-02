@@ -1,47 +1,50 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 
-const roles = ["Web Developer", "Backend Developer", "MERN Stack Developer"];
+const roles = ["Full Stack Developer", "Backend Developer", "SaaS Engineer"];
+
+const TYPE_MS = 90;
+const DELETE_MS = 45;
+const HOLD_MS = 1800;
 
 const Typewriter = () => {
-  const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
+  const [length, setLength] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const typingSpeed = isDeleting ? 50 : 100;
-  const pauseTime = 2000;
+  const role = roles[roleIndex];
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const currentRole = roles[roleIndex];
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setLength(role.length);
+      return;
+    }
 
-      if (isDeleting) {
-        setText(currentRole.substring(0, charIndex - 1));
-        setCharIndex((prev) => prev - 1);
-      } else {
-        setText(currentRole.substring(0, charIndex + 1));
-        setCharIndex((prev) => prev + 1);
-      }
+    let delay = isDeleting ? DELETE_MS : TYPE_MS;
+    let step = () => setLength((prev) => prev + (isDeleting ? -1 : 1));
 
-      // Switch to deleting after full word typed
-      if (!isDeleting && charIndex === currentRole.length) {
-        setTimeout(() => setIsDeleting(true), pauseTime);
-      }
-
-      // Switch to typing next role after deleting complete
-      if (isDeleting && charIndex === 0) {
+    if (!isDeleting && length === role.length) {
+      // Full word typed: hold, then start deleting
+      delay = HOLD_MS;
+      step = () => setIsDeleting(true);
+    } else if (isDeleting && length === 0) {
+      // Fully deleted: move on to the next role
+      step = () => {
         setIsDeleting(false);
         setRoleIndex((prev) => (prev + 1) % roles.length);
-      }
-    }, typingSpeed);
+      };
+    }
 
+    const timeout = setTimeout(step, delay);
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, roleIndex, typingSpeed]);
+  }, [length, isDeleting, role]);
 
   return (
-    <div className="sub-text typing-container">
-      <span className="typed-text">{text}<span className="cursor">|</span></span>
+    <div className="typing-container">
+      <span className="sr-only">{roles.join(", ")}</span>
+      <span className="typed-text" aria-hidden="true">
+        {role.substring(0, length)}<span className="cursor">|</span>
+      </span>
     </div>
   );
 };

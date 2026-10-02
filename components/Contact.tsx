@@ -1,107 +1,106 @@
 "use client";
-import Link from "next/link";
 import React, { useState } from "react";
 import { FaLinkedin, FaInstagram, FaGithub, FaYoutube } from "react-icons/fa";
 import { FaPhone, FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
+import { SITE, SOCIALS } from "@/utils/site";
 
 export default function Contact() {
     const [name, setName] = useState("");
     const [message, setMessage] = useState("");
 
+    const trimmedName = name.trim();
+    const trimmedMessage = message.trim();
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${trimmedName}`);
+    const body = encodeURIComponent(`Hi Mukesh,\n\nName: ${trimmedName}\n\nMessage:\n${trimmedMessage}\n\n---\nSent from Portfolio Website`);
+
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!name.trim() || !message.trim()) return;
+        if (!trimmedName || !trimmedMessage) return;
 
-        const recipient = "mukeshsuthar6142@gmail.com";
-        const subject = encodeURIComponent(`Portfolio Inquiry from ${name.trim()}`);
-        const body = encodeURIComponent(`Hi Mukesh,\n\nName: ${name.trim()}\n\nMessage:\n${message.trim()}\n\n---\nSent from Portfolio Website`);
-        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${recipient}&su=${subject}&body=${body}`;
-        
-        window.open(gmailUrl, "_blank");
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(SITE.email)}&su=${subject}&body=${body}`;
+
+        window.open(gmailUrl, "_blank", "noopener,noreferrer");
     };
 
     return (
-        <section className="contact-section">
-            <div className="contact-me">
-                {/* Left Card: Direct Contact Details & Socials */}
-                <div className="contact-info">
-                    <b>Let&apos;s get in touch</b>
-                    <p className="contact-desc">
-                        Have an opportunity, exciting SaaS project, or want to discuss full stack engineering? Reach out directly or send a message via the form!
+        <div className="contact-grid">
+            {/* Left Card: Direct Contact Details & Socials */}
+            <section className="contact-info card" aria-labelledby="contact-info-title">
+                <h2 id="contact-info-title" className="contact-card-title">Let&apos;s get in touch</h2>
+                <p className="contact-desc">
+                    Have an opportunity, exciting SaaS project, or want to discuss full stack engineering? Reach out directly or send a message via the form!
+                </p>
+
+                {/* Direct Contact Info */}
+                <div className="contact-methods">
+                    <a className="single-contact" href={`tel:${SITE.phone}`}>
+                        <span className="contact-icon"><FaPhone size={16} /></span>
+                        <span className="contact-detail">
+                            <span className="contact-detail-label">Phone</span>
+                            <span className="contact-detail-value">{SITE.phoneDisplay}</span>
+                        </span>
+                    </a>
+                    <a className="single-contact" href={`mailto:${SITE.email}`}>
+                        <span className="contact-icon"><IoIosMail size={20} /></span>
+                        <span className="contact-detail">
+                            <span className="contact-detail-label">Email</span>
+                            <span className="contact-detail-value">{SITE.email}</span>
+                        </span>
+                    </a>
+                </div>
+
+                <div className="contact-socials-wrapper">
+                    <span className="contact-socials-label">Connect across platforms</span>
+                    <div className="social-icons">
+                        <a href={SOCIALS.linkedin.href} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="social-btn linkedin"><FaLinkedin size={19} /></a>
+                        <a href={SOCIALS.github.href} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="social-btn github"><FaGithub size={19} /></a>
+                        <a href={SOCIALS.x.href} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="social-btn x-twitter"><FaXTwitter size={17} /></a>
+                        <a href={SOCIALS.instagram.href} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-btn instagram"><FaInstagram size={19} /></a>
+                        <a href={SOCIALS.youtube.href} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="social-btn youtube"><FaYoutube size={19} /></a>
+                    </div>
+                </div>
+            </section>
+
+            {/* Right Card: Simplified Name + Message Form */}
+            <section className="contact-form card" aria-labelledby="contact-form-title">
+                <h2 id="contact-form-title" className="contact-card-title">Leave a message</h2>
+                <form onSubmit={onSubmit}>
+                    <div className="field">
+                        <label htmlFor="contact-name">Your Name</label>
+                        <input
+                            id="contact-name"
+                            type="text"
+                            name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="e.g. John Doe"
+                            required
+                            autoComplete="name"
+                        />
+                    </div>
+                    <div className="field">
+                        <label htmlFor="contact-message">Your Message</label>
+                        <textarea
+                            id="contact-message"
+                            name="message"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            placeholder="Write your message or project requirements here..."
+                            required
+                            rows={6}
+                        ></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-block">
+                        <SiGmail /> Send via Gmail
+                    </button>
+                    <p className="form-alt">
+                        Not on Gmail?{" "}
+                        <a href={`mailto:${SITE.email}?subject=${subject}&body=${body}`}>Open in your mail app</a>
                     </p>
-                    
-                    {/* Direct Contact Info */}
-                    <div className="contact-methods">
-                        <div className="single-contact">
-                            <div className="contact-icon"><FaPhone size={17} /></div>
-                            <div className="contact-detail">
-                                <span className="contact-detail-label">Phone</span>
-                                <Link href="tel:+919016281095">+91 9016281095</Link>
-                            </div>
-                        </div>
-                        <div className="single-contact">
-                            <div className="contact-icon"><IoIosMail size={19} /></div>
-                            <div className="contact-detail">
-                                <span className="contact-detail-label">Email</span>
-                                <Link href="mailto:mukeshsuthar6142@gmail.com">mukeshsuthar6142@gmail.com</Link>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="contact-socials-wrapper">
-                        <span className="contact-socials-label">Connect across platforms:</span>
-                        <div className="other-links">
-                            <Link href="https://www.linkedin.com/in/mukeshsuthar90" target="_blank" aria-label="LinkedIn"><FaLinkedin size={22}/></Link>
-                            <Link href="https://github.com/MukeshSuthar14" target="_blank" aria-label="GitHub"><FaGithub size={22}/></Link>
-                            <Link href="https://www.x.com/mukeshsuthar90" target="_blank" aria-label="X (Twitter)"><FaXTwitter size={20}/></Link>
-                            <Link href="https://www.instagram.com/mukesh_sthr90" target="_blank" aria-label="Instagram"><FaInstagram size={22}/></Link>
-                            <Link href="https://www.youtube.com/@msdoticon" target="_blank" aria-label="YouTube"><FaYoutube size={22}/></Link>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Right Card: Simplified Name + Message Form */}
-                <div className="form-div">
-                    <div className="form-container">
-                        <b>Leave a message</b>
-                        <form onSubmit={onSubmit}>
-                            <div>
-                                <label htmlFor="contact-name">Your Name</label>
-                                <input
-                                    id="contact-name"
-                                    type="text"
-                                    name="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    placeholder="e.g. John Doe"
-                                    required
-                                    autoComplete="off"
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="contact-message">Your Message</label>
-                                <textarea
-                                    id="contact-message"
-                                    name="message"
-                                    value={message}
-                                    onChange={(e) => setMessage(e.target.value)}
-                                    placeholder="Write your message or project requirements here..."
-                                    required
-                                    autoComplete="off"
-                                    rows={5}
-                                ></textarea>
-                            </div>
-                            <div className="submit-btn">
-                                <button type="submit" className="btn-submit">
-                                    <SiGmail style={{ marginRight: "10px", fontSize: "18px" }} /> Send via Gmail
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+                </form>
+            </section>
+        </div>
     );
 }
